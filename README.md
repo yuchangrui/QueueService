@@ -48,13 +48,15 @@
     -prioritySecs 调整优先级秒数(支持负值)
     -priorityUserId 调整优先级的用户ID
 
-#### 编译和运行
+### 二、编译和运行
 
     ./build.sh
     ./server
     ./client -num 100
     ./client -consumSpeed 1 -customer true
     ./client -priorityUserId 123456 -prioritySecs 1 -priority true
+
+### 三、测试相关
 
 #### 测试机器
     
@@ -66,11 +68,8 @@
 
     客户端排队并发量10000
 
-#### cpu && mem 消耗
-![](img/cpu&mem.png)
-
-#### cpu && mem占用分析
-详见 img/cpu.svg, img/alloc.svg
+#### cpu && mem 消耗及占用分析
+详见 img/cpu&mem.png img/cpu.svg, img/alloc.svg
 
 ### 四、已解决问题
 
@@ -87,3 +86,7 @@
     6.日志系统接入
     7.metrics接入
     8.每个客户端有两个buff: network.Session.sendMsgChan 和 network.Session.buf，经测试占用比较大内存，待优化
+
+### 六、其他
+
+    请预先调整系统进程打开文件描述符数量限制
